@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='bg-black min-h-screen'>
+    <div className='bg-gray min-h-screen'>
       <Dashboard/>
     </div>
   )

@@ -2,7 +2,7 @@
 import React, {useEffect} from 'react'
 import { useWeather,WeatherProvider } from '@/components/weather/context/weather';
 // import { useWeather } from './context/Weather';
-import { weatherCard,Input,Button } from './Weathercomponent';
+import { WeatherCard,Input,Button } from './Weathercomponent';
 import Location from '../location/Location';
 
 const Wrapper = () => {
@@ -23,8 +23,8 @@ const Wrapper = () => {
       {/* <div>
         dd
       </div> */}
-      <weatherCard />
-      <Location/>
+      <WeatherCard />
+      {/* <Location/> */}
       <Button value="Refresh" onClick={()=>{window.location.reload()}} />
     </div>
   );

@@ -264,7 +264,7 @@
 
 
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Navbar as NextNavbar,
   NavbarBrand,
@@ -283,10 +283,12 @@ import { motion } from "framer-motion"; // For subtle animations
 // Import Google Fonts for enhanced styling
 import "@fontsource/poppins"; // Clean font for travel theme
 import "@fontsource/nunito";  // Round font for food theme
+import AuthContext from "@/app/AuthContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [accessToken, setAccessToken] = useState(null);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const token = Cookies.get("accessToken") || null;
@@ -358,7 +360,7 @@ const Navbar = () => {
 
       {/* User Profile/Sign Up Section */}
       <NavbarContent justify="end">
-        {accessToken ? (
+        {user ? (
           <Profile />
         ) : (
           <>

@@ -3,7 +3,7 @@ import React from "react";
 
 import { useWeather } from "@/components/weather/context/weather";
 
-export const weatherCard = () => {
+export const WeatherCard = () => {
     const weather = useWeather();
   
     return (

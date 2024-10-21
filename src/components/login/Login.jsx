@@ -1,12 +1,14 @@
 'use client'
 import { loginUser } from '@/app/api/utils/login';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation';
+import AuthContext from '@/app/AuthContext';
 
 
 const Login = () => {
     const router = useRouter()
+    const { setUser } = useContext(AuthContext);
   const [loginData, setLoginData] = useState({
     // name:"",
     email: "",
@@ -19,16 +21,9 @@ const Login = () => {
       const res = await loginUser(loginData)
       if(res){
         Cookies.set('accessToken',res?.token)
-        // router.replace('/')
+        setUser({})
         router.push('/')
-        if(router.pathname === '/'){
-          console.log('At home page');
-        }
-        else{
-          console.log('At Login page.');
-        }
-        // window.location.reload();
-        console.log(router.pathname);
+        router.refresh()
       }
       // added new
       else {
