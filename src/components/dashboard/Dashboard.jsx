@@ -1,10 +1,12 @@
 'use client'
-import React, { useState } from 'react';
+import AuthContext from '@/app/AuthContext';
+import React, { useContext, useState } from 'react';
 
 const Dashboard = () => {
+    const { user } = useContext(AuthContext);
   // Sample user details (this would typically come from your backend or auth system)
   const [userDetails, setUserDetails] = useState({
-    email: 'user@example.com', // Sample email
+    email: user?.email||'demo@123', // Sample email
     profilePicture: 'https://via.placeholder.com/150', // Placeholder profile picture
   });
 

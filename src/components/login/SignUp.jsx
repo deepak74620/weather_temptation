@@ -1,12 +1,14 @@
 'use client'
 import { loginUser } from '@/app/api/utils/login';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation';
+import AuthContext from '@/app/AuthContext';
 
 
 const SignUp = () => {
     const router = useRouter()
+    const setUser = useContext(AuthContext)
   const [loginData, setLoginData] = useState({
     name:"",
     email: "",
@@ -21,9 +23,9 @@ const SignUp = () => {
       const res = await loginUser(loginData)
       if(res){
         Cookies.set('accessToken',res?.token)
-        // 
-        // setIsSubmitted(true);
+        setUser(res?.user)
         router.push('/')
+        router.refresh()
       }
     } catch (error) {
       console.log(error)

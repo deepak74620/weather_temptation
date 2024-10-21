@@ -21,7 +21,7 @@ const Login = () => {
       const res = await loginUser(loginData)
       if(res){
         Cookies.set('accessToken',res?.token)
-        setUser({})
+        setUser(res?.user)
         router.push('/')
         router.refresh()
       }
