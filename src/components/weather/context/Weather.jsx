@@ -33,12 +33,15 @@ export const WeatherProvider = (props) => {
   };
 
   const fetchCurrentUserLocationData = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      getWeatherDataForLocation(
-        position.coords.latitude,
-        position.coords.longitude
-      ).then((data) => setData(data));
-    });
+    if ("geolocation" in navigator){
+
+      navigator.geolocation.getCurrentPosition((position) => {
+        getWeatherDataForLocation(
+          position.coords.latitude,
+          position.coords.longitude
+        ).then((data) => setData(data));
+      });
+    }
   };
 
   return (

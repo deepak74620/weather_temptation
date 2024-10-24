@@ -17,7 +17,7 @@ const Wrapper = () => {
   }, []);
 
   return (
-    <div className=" p-8">
+    <div className=" p-4">
       {/* <h1>Weather Forecast</h1> */}
       {/* <Input />
       <Button onClick={weatherContent?.fetchData} value="Search" /> */}

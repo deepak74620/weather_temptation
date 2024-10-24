@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='bg-gray min-h-screen'>
+    <div className='bg-gray min-h-screen flex items-center justify-center'>
       <Dashboard/>
     </div>
   )

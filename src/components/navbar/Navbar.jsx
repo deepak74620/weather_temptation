@@ -356,6 +356,17 @@ const Navbar = () => {
             </Link>
           </motion.div>
         </NavbarItem>
+        <NavbarItem>
+          <motion.div whileHover={hoverEffect}>
+            <Link
+              href="/wishlist"
+              className="font-semibold text-white"
+              style={{ fontFamily: 'Nunito, sans-serif' }}
+            >
+             Wishlist
+            </Link>
+          </motion.div>
+        </NavbarItem>
       </NavbarContent>
 
       {/* User Profile/Sign Up Section */}
